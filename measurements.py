@@ -49,5 +49,6 @@ def api_insert_data():
             cursor.close()
             connection.close()
             print("Connection to the database closed")
+
 if __name__ == "__main__":
     app.run(debug=True) 
