@@ -3,7 +3,7 @@ import requests
 import time
 
 ser = serial.Serial('COM3', 9600)  # Adjust the port and baud rate as needed
-api_url = "https://msvoltagecurrent.azurewebsites.net/insert_data"  # Replace with your Azure Web App URL
+api_url = "https://shrouded-savannah-08736-745c66f6276e.herokuapp.com/insert_data"  # Replace with your Azure Web App URL
 
 while True:
     arduino_data = ser.readline().decode().strip()
@@ -18,4 +18,4 @@ while True:
     except requests.exceptions.RequestException as e:
         print("Error sending data:", e)
 
-    time.sleep(30)
+    time.sleep(30)  # Delay before sending the next set of data

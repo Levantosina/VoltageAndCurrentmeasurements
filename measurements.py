@@ -1,12 +1,8 @@
-import serial
 import mysql.connector
 from mysql.connector import Error
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-# Serial communication setup
-ser = serial.Serial('COM3', 9600)  # Adjust the port and baud rate as needed
 
 # Azure database configuration
 db_config = {
@@ -32,9 +28,8 @@ def api_insert_data():
             cursor = connection.cursor()
             print("Connected to the Azure database")
 
-            data = request.json  # Assuming the request contains JSON with "voltage" and "current" keys
-            voltage = data.get('voltage')
-            current = data.get('current')
+            voltage = float(request.data)  # Assuming the request data is the voltage value
+            current = float(request.data)  # Assuming the request data is the current value
 
             insert_data(cursor, voltage, current)
             connection.commit()
