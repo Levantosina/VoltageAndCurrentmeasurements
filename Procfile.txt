@@ -1,1 +1,1 @@
-web: python measurements.py
+web: python test3.py
